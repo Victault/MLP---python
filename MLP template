@@ -3,13 +3,17 @@ NbNeuronesSortie=input("Entrez le nombre de neurones de la couche de sortie:")
 NbCouchesCachées=input("Entrez le nombre de couches cachées:")
 NbNeuronesCouchesCachées=input("Entrez le nombre de neurones des couches cachées:")
 
-CoucheEntrée = CréerCouche(NbNeuronesEntree)
+FichierApp= input("Merci bien. Maintenant, veuillez entrer le nom du fichier contenant la base d'exemples pour l'apprentissage, avec son extension:")
+FichierGen= input("Et le nom du fichier contenant la base d'exemples pour la généralisation, avec son extension:")
+
+CoucheEntrée = [] ## Une liste vide suffit pour la couche d'entrée: les "neurones" qu'elle contient ne sont pas des tableaux, 
+                  ## mais simplement les nombres correspondant aux valeurs de l'exemple choisi. Cf la fonction LireExempleApprentissage()
 
 CouchesCachées = []
 for i in range(NbCouchesCachées) :
 	CouchesCachées.append(CréerCouche(NbNeuronesCouchesCachées))
 	
-CoucheSortie=	CréerCouche(NbNeuroneSortie)
+CoucheSortie = CréerCouche(NbNeuroneSortie)
 
 
 def CréerNeurone():
@@ -28,3 +32,18 @@ def CréerCouche(nombreNeurones):
 	return Couche
 		
 		
+def LireExempleApprentissage():
+	f=open(FichierApp,"r") ## Lecture dans le fichier d'apprentissage
+	entrée=f.read(1)
+	while entrée != " ": ## Tant qu'on a les valeurs d'entrée et pas les sorties désirées, on continue à lire
+		entrée=int(entrée)
+		CoucheEntrée.append(entrée) ## On place les valeurs dans la couche d'entrée
+		entrée=f.read(1)
+		
+def LireExempleGénéralisation():
+	f=open(FichierGen,"r") ## Lecture dans le fichier de généralisation
+	entrée=f.read(1)
+	while entrée != " ": ## Tant qu'on a les valeurs d'entrée et pas les sorties désirées, on continue à lire
+		entrée=int(entrée)
+		CoucheEntrée.append(entrée) ## On place les valeurs dans la couche d'entrée
+		entrée=f.read(1)	
