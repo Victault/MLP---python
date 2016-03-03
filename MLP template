@@ -1,3 +1,5 @@
+from random import*
+
 NbNeuronesEntree=input("Entrez le nombre de neurones de la couche d'entrée:")
 NbNeuronesEntree=int(NbNeuronesEntree)
 
@@ -49,7 +51,17 @@ def CréerCouche(nombreNeurones, numéroCouche):
 	
 	return Couche
 		
-		
+def initialisationDesPoids():
+	for i in range(len(TableauDesPoids)):
+		for j in range(len(TableauDesPoids[i]):
+			if i == 0:
+				a= NbNeuronesEntree
+				k=0
+				while k<a:
+					TableauDesPoids[i][j]=	
+			
+	
+	
 def LireExempleApprentissage():
 	f=open(FichierApp,"r") ## Lecture dans le fichier d'apprentissage
 	entrée=f.read(1)
