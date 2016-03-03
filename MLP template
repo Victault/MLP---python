@@ -1,7 +1,14 @@
 NbNeuronesEntree=input("Entrez le nombre de neurones de la couche d'entrée:")
+NbNeuronesEntree=int(NbNeuronesEntree)
+
 NbNeuronesSortie=input("Entrez le nombre de neurones de la couche de sortie:")
+NbNeuronesSortie=int(NbNeuronesSortie)
+
 NbCouchesCachées=input("Entrez le nombre de couches cachées:")
+NbCouchesCachées=int(NbCouchesCachées)
+
 NbNeuronesCouchesCachées=input("Entrez le nombre de neurones des couches cachées:")
+NbNeuronesCouchesCachées=int(NbNeuronesCouchesCachées)
 
 FichierApp= input("Merci bien. Maintenant, veuillez entrer le nom du fichier contenant la base d'exemples pour l'apprentissage, avec son extension:")
 FichierGen= input("Et le nom du fichier contenant la base d'exemples pour la généralisation, avec son extension:")
