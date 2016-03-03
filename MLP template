@@ -55,11 +55,19 @@ def initialisationDesPoids():
 	for i in range(len(TableauDesPoids)):
 		for j in range(len(TableauDesPoids[i]):
 			if i == 0:
-				a= NbNeuronesEntree
 				k=0
-				while k<a:
-					TableauDesPoids[i][j]=	
-			
+				while k< NbNeuronesEntree:
+					TableauDesPoids[i][j].append(randrange(-0.3, +0.3, 0.00001))
+					k+=1
+	## print("Poids du premier neurone de la première couche cachée:", TableauDesPoids[0][0])
+			else:
+				k=0
+				while k< NbNeuronesCouchesCachées:
+					TableauDesPoids[i][j].append(randrange(-0.3, +0.3, 0.00001))
+					k+=1
+	## print("TableauDesPoids après initialisation:", TableauDesPoids)
+				
+				
 	
 	
 def LireExempleApprentissage():
