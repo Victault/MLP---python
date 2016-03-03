@@ -1,0 +1,30 @@
+NbNeuronesEntree=input("Entrez le nombre de neurones de la couche d'entrée:")
+NbNeuronesSortie=input("Entrez le nombre de neurones de la couche de sortie:")
+NbCouchesCachées=input("Entrez le nombre de couches cachées:")
+NbNeuronesCouchesCachées=input("Entrez le nombre de neurones des couches cachées:")
+
+CoucheEntrée = CréerCouche(NbNeuronesEntree)
+
+CouchesCachées = []
+for i in range(NbCouchesCachées) :
+	CouchesCachées.append(CréerCouche(NbNeuronesCouchesCachées))
+	
+CoucheSortie=	CréerCouche(NbNeuroneSortie)
+
+
+def CréerNeurone():
+	Neurone=[[],[],0]
+	
+	return Neurone
+	## 
+
+def ModifierPoids():
+
+def CréerCouche(nombreNeurones):
+	Couche=[]
+	for i in range(nombreNeurones):
+		Couche.append(CréerNeurone())
+		
+	return Couche
+		
+		
