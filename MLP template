@@ -11,24 +11,36 @@ CoucheEntrée = [] ## Une liste vide suffit pour la couche d'entrée: les "neuro
 
 CouchesCachées = []
 for i in range(NbCouchesCachées) :
-	CouchesCachées.append(CréerCouche(NbNeuronesCouchesCachées))
+	CouchesCachées.append(CréerCouche(NbNeuronesCouchesCachées, i))
 	
-CoucheSortie = CréerCouche(NbNeuroneSortie)
+CoucheSortie = CréerCouche(NbNeuroneSortie, NbCouchesCachées)
+
+TableauDesPoids=[[]] ## Un tableau qui contient tous les poids du réseau ! (Il faut bien les garder en mémoire pour les retrouver
+		   ## dans la phase de généralisation...)
+		   ## Et on initialise avec un tableau vide à l'intérieur qui correspond à la couche de sortie.
+		   ## A l'indice 0: le tableau des poids de la première couche cachée, à l'indice 1 celui de la deuxième...
+		   ## Donc par exemple TableauDesPoids[0][1]= la liste des poids du 2ème neurone de la 1ère couche cachée.
+		   
 
 
-def CréerNeurone():
+def CréerNeurone(numéroCoucheDuNeurone):
 	Neurone=[[],[],0]
+	
+	poidsDuNeurone=[]
+	TableauDesPoids[numéroCoucheDuNeurone].append(poidsDuNeurone)
 	
 	return Neurone
 	## 
 
 def ModifierPoids():
 
-def CréerCouche(nombreNeurones):
+def CréerCouche(nombreNeurones, numéroCouche):
 	Couche=[]
 	for i in range(nombreNeurones):
-		Couche.append(CréerNeurone())
-		
+		Couche.append(CréerNeurone(numéroCouche))
+	poidsDeLaCouche=[]
+	TableauDesPoids.append(poidsDeLaCouche)
+	
 	return Couche
 		
 		
@@ -39,6 +51,8 @@ def LireExempleApprentissage():
 		entrée=int(entrée)
 		CoucheEntrée.append(entrée) ## On place les valeurs dans la couche d'entrée
 		entrée=f.read(1)
+	f.close()
+		
 		
 def LireExempleGénéralisation():
 	f=open(FichierGen,"r") ## Lecture dans le fichier de généralisation
@@ -47,3 +61,4 @@ def LireExempleGénéralisation():
 		entrée=int(entrée)
 		CoucheEntrée.append(entrée) ## On place les valeurs dans la couche d'entrée
 		entrée=f.read(1)	
+	f.close()
