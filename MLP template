@@ -22,9 +22,8 @@ for i in range(NbCouchesCachées) :
 	
 CoucheSortie = CréerCouche(NbNeuroneSortie, NbCouchesCachées)
 
-TableauDesPoids=[[]] ## Un tableau qui contient tous les poids du réseau ! (Il faut bien les garder en mémoire pour les retrouver
-		   ## dans la phase de généralisation...)
-		   ## Et on initialise avec un tableau vide à l'intérieur qui correspond à la couche de sortie.
+TableauDesPoids=[] ## Un tableau qui contient tous les poids du réseau ! (Il faut bien les garder en mémoire pour les modifier,
+		   ## et pour les retrouver dans la phase de généralisation...)
 		   ## A l'indice 0: le tableau des poids de la première couche cachée, à l'indice 1 celui de la deuxième...
 		   ## Donc par exemple TableauDesPoids[0][1]= la liste des poids du 2ème neurone de la 1ère couche cachée.
 		   
