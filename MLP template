@@ -1,4 +1,5 @@
 from random import*
+from math import*
 
 NbNeuronesEntree=input("Entrez le nombre de neurones de la couche d'entrée:")
 NbNeuronesEntree=int(NbNeuronesEntree)
@@ -15,11 +16,14 @@ NbNeuronesCouchesCachées=int(NbNeuronesCouchesCachées)
 FichierApp= input("Merci bien. Maintenant, veuillez entrer le nom du fichier contenant la base d'exemples pour l'apprentissage, avec son extension:")
 FichierGen= input("Et le nom du fichier contenant la base d'exemples pour la généralisation, avec son extension:")
 
+k=input("Choisissez la pente à l'origine de la fonction sigmoïde (conseil: 1 ou 2) :")
+k=int(k)
 
 TableauDesPoids=[] ## Un tableau qui contient tous les poids du réseau ! (Il faut bien les garder en mémoire pour les modifier,
 		   ## et pour les retrouver dans la phase de généralisation...)
 		   ## A l'indice 0: le tableau des poids de la première couche cachée, à l'indice 1 celui de la deuxième...
 		   ## Donc par exemple TableauDesPoids[0][1]= la liste des poids du 2ème neurone de la 1ère couche cachée.
+
 		   
 
 
@@ -42,6 +46,7 @@ def CréerCouche(nombreNeurones, numéroCouche):
 
 	return Couche
 
+
 def initialisationDesPoids():
 	for i in range(len(TableauDesPoids)):
 		for j in range(len(TableauDesPoids[i])):
@@ -59,7 +64,12 @@ def initialisationDesPoids():
 	## print("TableauDesPoids après initialisation:", TableauDesPoids)				
 				
 	
-	
+def SommePondérée():
+
+def Sigmoide(x):
+	a = 
+
+
 def LireExempleApprentissage():
 	f=open(FichierApp,"r") ## Lecture dans le fichier d'apprentissage
 	entrée=f.read(1)
@@ -80,13 +90,15 @@ def LireExempleGénéralisation():
 	f.close()
 
 
+
 ## Créons les couches à présent:
 
 CoucheEntrée = [] ## Une liste vide suffit pour la couche d'entrée: les "neurones" qu'elle contient ne sont pas des tableaux, 
                   ## mais simplement les nombres correspondant aux valeurs de l'exemple choisi. Cf la fonction LireExempleApprentissage()
 
+
 CouchesCachées = []
 for i in range(NbCouchesCachées) :
 	CouchesCachées.append(CréerCouche(NbNeuronesCouchesCachées, i))
-	
+
 CoucheSortie = CréerCouche(NbNeuroneSortie, NbCouchesCachées)
